@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Department of CSE - Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header,
+        .footer {
+            background-color: #cb05d5;
+            /* Use a color similar to the one in the image */
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .header img,
+        .footer img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .nav {
+            background-color: #EDE7F6;
+            /* Light background color */
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .nav a {
+            color: #1A237E;
+            /* Blue color for the link */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .content {
+            display: flex;
+            margin: 20px;
+        }
+        
+        .sidebar {
+            width: 20%;
+            background-color: #BDBDBD;
+            /* Grey color for sidebar */
+            padding: 20px;
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin: 10px 0;
+        }
+        
+        .sidebar a {
+            text-decoration: none;
+            color: #303F9F;
+            /* Blue color for links */
+        }
+        
+        .main-content {
+            width: 80%;
+            padding: 20px;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Rajalakshmi Engineering College</h1>
+    </div>
+    <div class="nav">
+        <a href="#">Rajalakshmi Nagar, Thandalam, Chennai - 602 105</a>
+    </div>
+    <div class="content">
+        <div class="sidebar">
+            <ul>
+                <li>CSE</li>
+                <li><a href="https://www.rajalakshmi.org/dept-cse-intro.php" target="contentFrame">Introduction</a></li>
+                <li><a href="https://www.rajalakshmi.org/dept-cse-opportunities.php" target="contentFrame">Opportunities</a></li>
+                <li><a href="https://www.rajalakshmi.org/dept-cse-faculty.php" target="contentFrame">Faculty Members</a></li>
+                <li><a href="https://www.rajalakshmi.org/dept-cse-lab.php" target="contentFrame">Lab Facility</a></li>
+                <li><a href="https://www.rajalakshmi.org/dept-cse-student-achievements.php" target="contentFrame">News</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <iframe src="https://www.rajalakshmi.org/dept-cse-intro.php" name="contentFrame" title="Content Frame"></iframe>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Rajalakshmi Engineering College</h1>
+    </div>
+</body>
+
+</html>
