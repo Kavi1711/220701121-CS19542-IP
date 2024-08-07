@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateForm() {
+            const form = document.forms["registrationForm"];
+            const fields = [{
+                name: "phone",
+                label: "Phone number",
+                pattern: /^[0-9]{10}$/,
+                errorMessage: "Please enter a valid 10-digit phone number."
+            }, {
+                name: "country",
+                label: "Country"
+            }, {
+                name: "city",
+                label: "City"
+            }, {
+                name: "address",
+                label: "Address"
+            }, {
+                name: "pincode",
+                label: "Pincode",
+                pattern: /^[0-9]{6}$/,
+                errorMessage: "Please enter a valid 6-digit pincode."
+            }, {
+                name: "password",
+                label: "Password",
+                pattern: /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$/,
+                errorMessage: "Password must contain at least one special character, one uppercase letter, one lowercase letter, one number, and be at least 8 characters long."
+            }, {
+                name: "confirm_password",
+                label: "Confirm password"
+            }];
+
+            let valid = true;
+            let emptyFields = [];
+            let errors = {};
+
+            fields.forEach(field => {
+                const element = form[field.name];
+                const errorElement = document.getElementById(field.name + "Error");
+                if (element.value.trim() === "") {
+                    emptyFields.push(field.label);
+                    errorElement.textContent = "Please fill this field.";
+                    valid = false;
+                } else if (field.pattern && !field.pattern.test(element.value)) {
+                    errorElement.textContent = field.errorMessage;
+                    valid = false;
+                } else {
+                    errorElement.textContent = "";
+                }
+            });
+
+            if (form["password"].value !== form["confirm_password"].value) {
+                document.getElementById("confirm_passwordError").textContent = "Passwords do not match.";
+                valid = false;
+            }
+
+            if (!valid) {
+                alert("Please fill all the required fields:\n" + emptyFields.join(", "));
+            }
+
+            return valid;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="form-container">
+        <form name="registrationForm" method="post" action="#" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+                <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" name="department" id="department">
+                <span class="error" id="departmentError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span class="error" id="genderError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" name="phone" id="phone">
+                <span class="error" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" name="country" id="country">
+                <span class="error" id="countryError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city">
+                <span class="error" id="cityError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea name="address" id="address" rows="4"></textarea>
+                <span class="error" id="addressError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" name="pincode" id="pincode">
+                <span class="error" id="pincodeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+                <span class="error" id="passwordError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password">
+                <span class="error" id="confirm_passwordError"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
